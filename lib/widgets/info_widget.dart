@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_ui/pages/followers_page.dart';
+import 'package:test_ui/widgets/social_stats_widget.dart';
 
 class InfoWidget extends StatelessWidget {
   const InfoWidget({Key? key}) : super(key: key);
@@ -45,6 +46,7 @@ class InfoWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(
+                left: 20,
                 top: 8,
                 bottom: 24,
               ),
@@ -86,9 +88,10 @@ class InfoWidget extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              elevation: 0.0,
-              backgroundColor: const Color(0xFFF4F5F6),
-            ),
+                elevation: 0.0,
+                backgroundColor: const Color(0xFFF4F5F6),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0))),
             child: const Text(
               'Follow',
               textAlign: TextAlign.center,
@@ -116,73 +119,12 @@ class InfoWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Column(
-                    children: const [
-                      Text(
-                        '186',
-                        style: TextStyle(
-                          color: Color(0xFF283352),
-                          fontSize: 20,
-                          fontFamily: 'Gelion',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        'Followers',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF75777E),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 42,
-                    child: VerticalDivider(),
-                  ),
-                  Column(
-                    children: const [
-                      Text(
-                        '18',
-                        style: TextStyle(
-                          color: Color(0xFF283352),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        'Following',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF75777E),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 42,
-                    child: VerticalDivider(),
-                  ),
-                  Column(
-                    children: const [
-                      Text(
-                        '1.4k',
-                        style: TextStyle(
-                          color: Color(0xFF283352),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        'Likes',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF75777E),
-                        ),
-                      ),
-                    ],
-                  ),
+                children: const [
+                  SocialStatsWidget(title: '186', subtitle: 'Followers'),
+                  VerticalDivider(),
+                  SocialStatsWidget(title: '18', subtitle: 'Following'),
+                  VerticalDivider(),
+                  SocialStatsWidget(title: '1.4k', subtitle: 'Likes'),
                 ],
               ),
             ),
