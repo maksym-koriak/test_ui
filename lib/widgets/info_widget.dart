@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_ui/pages/followers_page.dart';
 
 class InfoWidget extends StatelessWidget {
   const InfoWidget({Key? key}) : super(key: key);
@@ -25,9 +26,10 @@ class InfoWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 5, left: 4),
                       child: SizedBox(
-                          height: 17,
-                          width: 17,
-                          child: Image.asset('assets/images/tick.png')),
+                        height: 17,
+                        width: 17,
+                        child: Image.asset('assets/images/tick.png'),
+                      ),
                     )
                   ],
                 ),
@@ -62,110 +64,128 @@ class InfoWidget extends StatelessWidget {
               TextSpan(
                 text:
                     'T-dawg // Luxury, Adventure & Sustainable Travel // Digital creator // Award Winning Luxury Travel',
-                style: TextStyle(fontSize: 16, color: Colors.black),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
               ),
               TextSpan(
                 text: ' ...',
-                style: TextStyle(fontSize: 17, color: Color(0xFF75777E)),
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Color(0xFF75777E),
+                ),
               )
             ],
           ),
         ),
         const SizedBox(height: 20),
-        Container(
+        SizedBox(
           width: double.infinity,
           height: 48,
-          decoration: ShapeDecoration(
-            color: const Color(0xFFF2F2F2),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
-          child: const Center(
-            child: Text(
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              elevation: 0.0,
+              backgroundColor: const Color(0xFFF4F5F6),
+            ),
+            child: const Text(
               'Follow',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xFF292B36),
                 fontSize: 18,
-                fontFamily: 'Gelion',
-                fontWeight: FontWeight.w400,
               ),
             ),
           ),
         ),
-        const SizedBox(height: 40),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Column(
-                children: const [
-                  Text(
-                    '186',
-                    style: TextStyle(
-                      color: Color(0xFF283352),
-                      fontSize: 20,
-                      fontFamily: 'Gelion',
-                      fontWeight: FontWeight.w600,
-                      height: 0.07,
-                    ),
+          child: SizedBox(
+            height: 45,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FollowersPage(),
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Followers',
-                    style: TextStyle(fontSize: 14, color: Color(0xFF75777E)),
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    children: const [
+                      Text(
+                        '186',
+                        style: TextStyle(
+                          color: Color(0xFF283352),
+                          fontSize: 20,
+                          fontFamily: 'Gelion',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'Followers',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF75777E),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 42,
+                    child: VerticalDivider(),
+                  ),
+                  Column(
+                    children: const [
+                      Text(
+                        '18',
+                        style: TextStyle(
+                          color: Color(0xFF283352),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'Following',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF75777E),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 42,
+                    child: VerticalDivider(),
+                  ),
+                  Column(
+                    children: const [
+                      Text(
+                        '1.4k',
+                        style: TextStyle(
+                          color: Color(0xFF283352),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'Likes',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF75777E),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 42,
-                child: VerticalDivider(),
-              ),
-              Column(
-                children: const [
-                  Text(
-                    '18',
-                    style: TextStyle(
-                      color: Color(0xFF283352),
-                      fontSize: 20,
-                      fontFamily: 'Gelion',
-                      fontWeight: FontWeight.w600,
-                      height: 0.07,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Following',
-                    style: TextStyle(fontSize: 14, color: Color(0xFF75777E)),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 42,
-                child: VerticalDivider(),
-              ),
-              Column(
-                children: const [
-                  Text(
-                    '1.4k',
-                    style: TextStyle(
-                      color: Color(0xFF283352),
-                      fontSize: 20,
-                      fontFamily: 'Gelion',
-                      fontWeight: FontWeight.w600,
-                      height: 0.07,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Likes',
-                    style: TextStyle(fontSize: 14, color: Color(0xFF75777E)),
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         )
       ],
